@@ -6,7 +6,7 @@ import { useFetch } from './hooks/useFetch';
 import styles from './Urls.module.css';
 
 const Urls = () => {
-  const { data, error, loading } = useFetch('----Your url----');
+  const { data, error, loading } = useFetch('http://localhost:5000/shorturls');
   console.log(data);
 
   return (
@@ -15,8 +15,8 @@ const Urls = () => {
         <span className={styles['complete-url-title']}>Full Url</span>
         <span className={styles['short-url-title']}>Short Url</span>
       </li>
-      {data &&
-        data.map((link) => (
+      {data.shorturls &&
+        data.shorturls.map((link) => (
           <li className={styles.url} key={link._id.$oid}>
             <span className={styles['complete-url']}>
               <a href={link.URL}>{link.URL}</a>

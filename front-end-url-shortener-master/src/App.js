@@ -1,20 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Urls from './components/Urls';
 
 function App() {
   const [input, setInput] = useState('');
 
+  const [URL, setURL] = useState('');
+
+  useEffect(() => {
+    setURL(input);
+  }, [input]);
+
   const submitHandler = (e) => {
     e.preventDefault();
 
+    const post = { URL };
+
     // *** url goes here!!!***
-    fetch('----Your url----', {
+    fetch('http://localhost:5000/shorturls', {
       method: 'POST',
       mode: 'cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ URL: input }),
-    }).then(console.log('posted'));
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: JSON.stringify(post),
+    }).then(console.log(post));
     setInput('');
   };
 
