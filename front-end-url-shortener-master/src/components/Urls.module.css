@@ -1,0 +1,29 @@
+.url-container {
+  margin: 2rem 0rem;
+  width: 100%;
+}
+.url-title,
+.url {
+  width: 90%;
+  margin: 0rem auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.url-title {
+  padding: 20px 10px;
+  font-size: 1.3rem;
+}
+
+.url {
+  border-top: 1px solid #333;
+}
+.url .complete-url {
+  width: 70%;
+}
+.url .short-url {
+  margin: 0px auto;
+}
