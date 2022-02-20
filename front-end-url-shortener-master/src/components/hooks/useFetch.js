@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export const useFetch = (url) => {
   const [data, setData] = useState([]);
@@ -23,11 +23,11 @@ export const useFetch = (url) => {
         setData(data);
         setError(null);
       } catch (err) {
-        if (err.name === 'AbortError') {
-          console.log('the fetch was aborted');
+        if (err.name === "AbortError") {
+          console.log("the fetch was aborted");
         } else {
           setLoading(false);
-          setError('There is nothing here');
+          setError("There is nothing here");
           console.log(err.message);
         }
       }

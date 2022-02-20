@@ -1,14 +1,25 @@
 const shorturl = require("../model/schema");
 const router = require("../routes/shorturl");
+const fs = require("fs");
 exports.home = async (req, res) => {
   const shorturls = await shorturl.find();
   res.status(200).json({ shorturls });
   // res.render("index", { title: "titel", shorturls });
 };
 exports.creatshorturl = async (req, res) => {
-  const { URL } = req.body;
-  await shorturl.create({ URL });
-  console.log(req.body);
+  // const { URL } = req.body;
+  // console.log(Object.keys(req.body)[0]);
+  // console.log(req.body);
+  // await Object.keys(req.body)[0];
+  // console.log({Object.keys(req.body)[0]});
+  try {
+    const url = Object.keys(req.body)[0];
+    const obj = JSON.parse(url);
+    const URL = obj.URL;
+    await shorturl.create({ URL: URL });
+  } catch (e) {
+    console.log(e);
+  }
   res.redirect("/");
 };
 

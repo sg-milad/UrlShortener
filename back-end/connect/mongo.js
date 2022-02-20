@@ -1,11 +1,4 @@
 const mongoose = require("mongoose");
-// try {
-//   mongoose.connect("mongodb://localhost:27017/urlShortener", () =>
-//     console.log("connected")
-//   );
-// } catch (e) {
-//   console.log(e);
-// }
 const connect = async () => {
   try {
     await mongoose
