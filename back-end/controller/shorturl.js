@@ -23,5 +23,5 @@ exports.geturl = async (req, res) => {
   console.log(req.params.shortUrl);
   shortUrl.clicks++;
   shortUrl.save();
-  res.json({ short: req.params.shortUrl });
+  res.redirect(shortUrl.URL);
 };
