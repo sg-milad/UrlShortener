@@ -13,9 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(require("./routes/shorturl"));
 app.set("view engine", "ejs");
 let port = process.env.PORT;
-// if (port == null || port == "") {
-//   port = 8000;
-// }
-// app.listen(port);
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
 
 app.listen(port, () => console.log("server is running"));
