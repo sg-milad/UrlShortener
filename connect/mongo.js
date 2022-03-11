@@ -1,13 +1,16 @@
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const mongoose = require("mongoose");
 const uri = process.env.MONGODB_URI;
 
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverApi: ServerApiVersion.v1,
-});
-client.connect((err) => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+const connect = async () => {
+  try {
+    await mongoose
+      .connect(
+        "mongodb+srv://sg_miladd:13811381@cluster0.8o7o0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+      )
+      .catch((error) => console.log(error));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+connect();
