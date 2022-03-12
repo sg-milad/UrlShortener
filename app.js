@@ -7,14 +7,14 @@ const dotenv = require("dotenv").config();
 app.use(morgan("dev"));
 app.use(cors());
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(require("./routes/shorturl"));
-app.set("view engine", "ejs");
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
+// app.set("view engine", "ejs");
+// let port = process.env.PORT || 8000;
+// if (port == null || port == "") {
+//   port = 8000;
+// }
 
-app.listen(port);
+app.listen(8000);

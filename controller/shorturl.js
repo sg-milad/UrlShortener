@@ -7,9 +7,10 @@ exports.home = async (req, res) => {
 };
 exports.creatshorturl = async (req, res) => {
   try {
-    const url = Object.keys(req.body)[0];
-    const obj = JSON.parse(url);
-    const URL = obj.URL;
+    // const url = Object.keys(req.body)[0];
+    // const obj = JSON.parse(url);
+    // const URL = obj.URL;
+    const { URL } = req.body.URL;
     await shorturl.create({ URL: URL });
   } catch (e) {
     console.log(e);
