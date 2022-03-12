@@ -12,9 +12,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(require("./routes/shorturl"));
 // app.set("view engine", "ejs");
-// let port = process.env.PORT || 8000;
-// if (port == null || port == "") {
-//   port = 8000;
-// }
+let port = process.env.PORT || 8000;
+if (port == null || port == "") {
+  port = 8000;
+}
 
-app.listen(8000);
+app.listen(port);
